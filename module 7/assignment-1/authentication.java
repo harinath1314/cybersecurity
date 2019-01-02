@@ -1,5 +1,6 @@
 /**
  * module 7 cyber security assignment -2
+ * secure version.
  * author harinathreddy
  * date :- 31-12-18
  */
@@ -14,7 +15,6 @@ import java.io.*;
 public class authentication {
     /**
      * main solution starts here.
-     *
      * @param      args  The arguments
      */
     public static void main(final String[] args) {
@@ -24,7 +24,7 @@ public class authentication {
         Boolean task = true;
         while (task) {
             //user selects sign in or sign up action.
-            System.out.println("select" + "\n" + "\n" + "1 - Sign in" + "\n" + "\n" + "2 - Signup");
+            System.out.println("select\n\n"+ "1 - Sign in\n\n" + "2 - Signup\n\n"+"q - exit\n\n");
             String input = sc.nextLine();
             if (input.equals("2")) {
                 signup.create();
@@ -76,17 +76,23 @@ public class authentication {
         System.out.println("user authetication task completed");
     }
 }
-
+/**
+ * Class for signup.
+ */
 class Signup {
     private static final String COMMA_DELIMITER = ",";
     private static final String NEW_LINE_SEPARATOR = "\n";
     private static final String header = "username,password,hint question,hint answer";
     FileWriter datafile = null;
+    /**
+     * Constructs the object.
+     */
     Signup() {
     }
-
+    /**
+     * create the user data,.
+     */
     void create() {
-
         Scanner sc = new Scanner(System.in);
         try {
             datafile = new FileWriter("database", true);
@@ -95,17 +101,13 @@ class Signup {
         }
         try {
             System.out.println("enter a username");
-            datafile.write(sc.nextLine());
-            datafile.write(COMMA_DELIMITER);
+            datafile.write(sc.nextLine()+COMMA_DELIMITER);
             System.out.println("set password");
-            datafile.write(sc.nextLine());
-            datafile.write(COMMA_DELIMITER);
+            datafile.write(sc.nextLine()+COMMA_DELIMITER);
             System.out.println("enter a security question");
-            datafile.write(sc.nextLine());
-            datafile.write(COMMA_DELIMITER);
+            datafile.write(sc.nextLine()+COMMA_DELIMITER);
             System.out.println("entr the answer for security question");
-            datafile.write(sc.nextLine());
-            datafile.write(NEW_LINE_SEPARATOR);
+            datafile.write(sc.nextLine()+NEW_LINE_SEPARATOR);
             datafile.close();
         } catch (IOException a) {
             System.out.println(a.getMessage());
